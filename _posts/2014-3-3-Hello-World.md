@@ -12,7 +12,7 @@ The easiest way to make your first post is to edit this one. Go into /_posts/ an
 {% highlight javascript %}
 /* Some pointless Javascript */ var rawr = [“r”, “a”, “w”, “r”]; {% endhighlight %} 
 
-{% highlight javascript %}
+{% highlight ruby %}
 r = []; 
 r << "Hallo" 
 ap r 
