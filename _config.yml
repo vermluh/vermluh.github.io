@@ -22,13 +22,14 @@ footer-links:
   email: 
   facebook: 
   flickr: 
-  github: barryclark/jekyll-now
+  github: vermluh
   instagram: 
   linkedin: 
   pinterest: 
   rss: # just type anything here for a working RSS icon, make sure you set the "url" above!
-  twitter: jekyllrb
-  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
+  twitter: vermluh
+  # your stackoverflow profile, e.g. "users/50476/bart-kiers"
+  stackoverflow: users/4090677/verm-luh 
 
 # Your disqus shortname, entering this will enable commenting on posts
 disqus: 
