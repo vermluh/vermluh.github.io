@@ -4,12 +4,10 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
-
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
+Florian Simon, father, software engineer, part time nerd...  
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+* [Github](https://github.com/vermluh)  
+* [stackoverflow](http://stackoverflow.com/users/4090677/verm-luh)  
+* [Twitter](https://twitter.com/vermluh)  
