@@ -1,21 +1,45 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.name | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}</link>
-    <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
-    {% for post in site.posts limit:10 %}
+    <title>Florian Simon</title>
+    <description>...but it works on my machine...</description>
+    <link></link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-        <link>{{ site.url }}{{ post.url }}</link>
-        <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+        <title>Tags in Jekyll</title>
+        <description>&lt;p&gt;Dank der großartigen Vorarbeit von &lt;a href=&quot;http://charliepark.org&quot;&gt;Charlie Park&lt;/a&gt; in &lt;a href=&quot;http://charliepark.org/tags-in-jekyll/&quot;&gt;Tags In Jekyll&lt;/a&gt; und &lt;a href=&quot;http://charliepark.org/jekyll-with-plugins/&quot;&gt;Jekyll + Plugins + Github + You&lt;/a&gt; gibt&amp;#39;s hier im Blog nun auch Tags um die Posts ein wenig zu kategorisieren.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 20 Aug 2015 00:00:00 +0200</pubDate>
+        <link>/2015/08/20/Jekyll-Tags.html</link>
+        <guid isPermaLink="true">/2015/08/20/Jekyll-Tags.html</guid>
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>Lift-off</title>
+        <description>&lt;p&gt;So, nun ist er also da. Mein erster Blog Versuch. In erster Linie sollen die Posts der Dokumentation meiner mehr oder minder sinnvollen Versuche und Experimente in den verschiedenen Bereichen der Computerei dienen. Umso schöner ist es natürlich, wenn jemand etwas davon für sich selbst nützlich findet.&lt;br&gt;
+Ich habe mich bewusst für &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;, genauer &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;jekyll-now&lt;/a&gt; entschieden, da ich möglichst wenig Zeremonie um das Erstellen und Editieren der Blog Posts haben möchte.  &lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;jekyll-now&lt;/a&gt; lässt sich folgendermaßen sehr kurz beschreiben (Zitat):  &lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Jekyll is a static site generator that&amp;#39;s perfect for GitHub hosted blogs &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;(Jekyll repository)&lt;/a&gt;  &lt;/p&gt;
+
+&lt;p&gt;Jekyll Now makes it easier to create your Jekyll blog, by eliminating a lot of the up front setup.  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Da der Softwareentwickler an sich ja eher zu den fauleren Zeitgenossen gehört, war vor allem der Teil  &lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;eliminating a lot of the up front setup&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;sehr interessant.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 01 Jul 2015 00:00:00 +0200</pubDate>
+        <link>/2015/07/01/Lift-Off.html</link>
+        <guid isPermaLink="true">/2015/07/01/Lift-Off.html</guid>
+      </item>
+    
   </channel>
 </rss>
