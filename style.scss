@@ -314,12 +314,12 @@ p.summary{color:#444;line-height:1.2;padding:0px 0px 0px 0px;margin:0px 0px 0px 
 time.archive_list_post_date{color:#666;float:right;font-size:11px;padding-top:1px;}
 
 ul.archive_list{display:inline;list-style-type:none;padding:0;margin:0;}
-ul.archive_list li {
+ul.archive_list li.archive_list {
 	padding-bottom: 10px;
 	background: url(images/bullet.jpg) bottom center;
 	background-repeat: no-repeat;
 }
-ul.archive_list li:last-child {
+ul.archive_list li.archive_list:last-child {
 	background-image: none;
 	padding-bottom: 0px;
 }
