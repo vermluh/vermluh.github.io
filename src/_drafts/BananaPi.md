@@ -13,9 +13,8 @@ Bla Blubb Laber
 Blubber
 
 
-[<img src="{{ site.url }}/images/bananapi_blue_sm.jpg" alt="Drawing" style="width: 50%;max-height: 100%"/>]({{ site.url }}/images/bananapi_blue_sm.jpg)
+[<img src="{{ site.url }}/images/bananapi_blue_sm.jpg" alt="DustyBananaPi" style="width: 50%;max-height: 100%"/>]({{ site.url }}/images/bananapi_blue_sm.jpg)
 
-<!--![My helpful BananaPi image]({{ site.url }}/images/bananapi_blue_sm.jpg)-->
 
 Noch mehr Text
 
