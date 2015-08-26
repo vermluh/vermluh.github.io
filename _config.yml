@@ -12,6 +12,10 @@ description: ...but it works on my machine...
 avatar: https://raw.githubusercontent.com/vermluh/vermluh.github.io/master/images/avatar.png
 #avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
 
+source: src
+
+destination: _site
+
 #
 # Flags below are optional
 #
@@ -42,6 +46,7 @@ google_analytics:
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
 url: blog.verm-luh.de
+#url:
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
