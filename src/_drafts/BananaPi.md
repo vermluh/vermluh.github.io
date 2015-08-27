@@ -18,4 +18,8 @@ Blubber
 
 Noch mehr Text
 
+{% highlight bash %}.
+putty -ssh -u fez -pw 1234 192.168.178.26
+{% endhighlight %}
+
 Wann ist das endlich zu Ende...
