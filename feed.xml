@@ -7,6 +7,80 @@
     <atom:link href="blog.verm-luh.de/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Remote Script Execution</title>
+        <description>&lt;p&gt;Kürzlich kam ich in die Situation, dass ich auf einem RaspberryPi ein Script ausführen musste, welches ein angeschlossenes Gerät initialisieren sollte. Klar, nichts außergewöhnliches:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;per SSH anmelden&lt;/li&gt;
+&lt;li&gt;Script ausführen&lt;/li&gt;
+&lt;li&gt;fertig&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Da diese Initialisierung aber später in einen extern ablaufenden Prozess auf einer anderen Maschine eingebunden werden soll, musste ein Weg her, die Initialisierung aus einem Prozess auf einem anderen (Windows) System anzustoßen.  &lt;/p&gt;
+
+&lt;h2&gt;PuTTY&lt;/h2&gt;
+
+&lt;p&gt;Bei den Themen Windows und SSH landet man natürlich zwangsläufig bei &lt;a href=&quot;http://www.chiark.greenend.org.uk/%7Esgtatham/putty/&quot;&gt;PuTTY&lt;/a&gt;.&lt;br&gt;
+PuTTY bietet uns verschiedene Möglichkeiten auf einem entfernten System mit aktiviertem SSH Zugang Skripte (bzw. beliebige Kommandos) auszuführen. Um dies zu demonstrieren legt man zuerst ein Python Skript auf dem Zielsystem an. Folgender einfacher Inhalt soll für eine Demonstration ausreichen:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Initialization successful...&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  
+
+&lt;p&gt;Die neu erstellte Datei noch ausführbar machen (&lt;code&gt;chmod +x ...&lt;/code&gt;) und schon kann es losgehen.&lt;br&gt;
+Mit dem Kommandozeilenparameter &lt;code&gt;m&lt;/code&gt; kann man PuTTY nun eine lokale Datei übergeben, deren Inhalt als Kommandos innerhalb der aufzubauenden Verbindung interpretiert werden sollen. Angenommen das oben gezeigte Skript liegt als &lt;code&gt;initialize.py&lt;/code&gt; im &lt;code&gt;home&lt;/code&gt; Verzeihnis des Benutzers, der per SSH am entfernten System angemeldet wird, dann würde die folgende Datei &lt;code&gt;remote_commands.txt&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;./initialize.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;mittels folgender Kommandozeile (der Pfad für den Parameter &lt;code&gt;m&lt;/code&gt; muss natürlich an die jeweiligen Gegebenheiten angepasst werden)&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;putty -ssh -l fez -pw &amp;lt;PASSWORD&amp;gt; -m d:/tools/putty/remote_commands.txt 192.168.178.36&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;an PuTTY übergeben, zu folgendem Ergebnis führen:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/putty_command_file_result.jpg&quot; alt=&quot;Command file result&quot; title=&quot;Command file result&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Die Ausführung eines Kommandos auf einem entfernten System funktioniert also soweit.&lt;br&gt;
+Allerdings hat diese Vorgehensweise auch Nachteile.&lt;br&gt;
+Zuerst ist es nicht sonderlich komfortabel alle auszuführenden Kommandos in speziellen Kommandodateien abzulegen, die dann als PuTTY Kommandozeilenparameter übergeben werden müssen. Bei einem oder zwei zu verwendenden Kommandos mag das noch gehen, aber irgendwann wird diese Herangehensweise unübersichtlich.&lt;br&gt;
+Der weitaus größere Nachteil ist aber der, dass man keine Möglichkeit hat den Exit-Code und somit die erfolgreiche Abarbeitung des oder der Kommandos zu überprüfen.  &lt;/p&gt;
+
+&lt;h2&gt;Plink&lt;/h2&gt;
+
+&lt;p&gt;Auftritt &lt;strong&gt;Plink&lt;/strong&gt;.&lt;br&gt;
+Plink (PuTTY Link) stellt eine kommandozeilenbasierte Schnittstelle zum PuTTY Backend dar und ist von der Funktionalität ähnlich dem von UNIX Systemen bekannten &lt;code&gt;ssh&lt;/code&gt;.&lt;br&gt;
+Um die Funktionsweise von Plink zu demonstrieren modifiziert man zuerst das eben erstellte Python Skript auf dem Zielsystem  folgendermaßen:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Initialization failed...&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Dieses modifizierte Skrip soll eine fehlgeschlagene Initialisierung auf dem Zielsystem simulieren. Dazu wird der Exit-Code des Skripts auf einen Wert ungleich 0 geändert. Bei der bisherigen Vorgehensweise des Aufrufs über den &lt;code&gt;m&lt;/code&gt; Parameter und die Datei &lt;code&gt;remote_commands.txt&lt;/code&gt; hätte man ohne weiteres keine Möglichkeit die erfolgreiche Abarbeitung der gewünschten Kommandos automatisiert zu überprüfen.&lt;br&gt;
+Führt man das Skript aber nun über folgendes &lt;code&gt;plink&lt;/code&gt; Kommando aus&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;plink.exe -ssh -pw &amp;lt;PASSWORD&amp;gt; fez@192.168.178.36 ~/error42.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;führt dies zu folgender Ausgabe:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/plink_command_result.jpg&quot; alt=&quot;plink result&quot; title=&quot;plink result&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Über das bekannte&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; %ERRORLEVEL%&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;ist es nun auch möglich, den Rückgabewert der Kommandoausführung abzufragen und somit die erfolgreiche Abarbeitung automatisiert zu überprüfen.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/plink_errorcode.jpg&quot; alt=&quot;plink errorcode&quot; title=&quot;plink errorcode&quot;&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 14 Sep 2015 00:00:00 +0200</pubDate>
+        <link>blog.verm-luh.de/2015/09/14/Remote-Script-Execution.html</link>
+        <guid isPermaLink="true">blog.verm-luh.de/2015/09/14/Remote-Script-Execution.html</guid>
+      </item>
+    
+      <item>
         <title>Tags in Jekyll</title>
         <description>&lt;p&gt;Dank der großartigen Vorarbeit von &lt;a href=&quot;http://charliepark.org&quot;&gt;Charlie Park&lt;/a&gt; in &lt;a href=&quot;http://charliepark.org/tags-in-jekyll/&quot;&gt;Tags In Jekyll&lt;/a&gt; und &lt;a href=&quot;http://charliepark.org/jekyll-with-plugins/&quot;&gt;Jekyll + Plugins + Github + You&lt;/a&gt; gibt&amp;#39;s hier im Blog nun auch Tags um die Posts ein wenig zu kategorisieren.&lt;/p&gt;
 </description>
@@ -17,8 +91,9 @@
     
       <item>
         <title>Lift-off</title>
-        <description>&lt;p&gt;So, nun ist er also da. Mein erster Blog Versuch. In erster Linie sollen die Posts der Dokumentation meiner mehr oder minder sinnvollen Versuche und Experimente in den verschiedenen Bereichen der Computerei dienen. Umso schöner ist es natürlich, wenn jemand etwas davon für sich selbst nützlich findet.&lt;br&gt;
-Ich habe mich bewusst für &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;, genauer &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;jekyll-now&lt;/a&gt; entschieden, da ich möglichst wenig Zeremonie um das Erstellen und Editieren der Blog Posts haben möchte.  &lt;/p&gt;
+        <description>&lt;p&gt;So, nun ist er also da. Mein erster Blog Versuch. In erster Linie sollen die Posts der Dokumentation meiner mehr oder minder sinnvollen Versuche und Experimente in den verschiedenen Bereichen der Computerei dienen. Umso schöner ist es natürlich, wenn jemand etwas davon für sich selbst nützlich findet.  &lt;/p&gt;
+
+&lt;p&gt;Ich habe mich bewusst für &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;, genauer &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;jekyll-now&lt;/a&gt; entschieden, da ich möglichst wenig Zeremonie um das Erstellen und Editieren der Blog Posts haben möchte.  &lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;jekyll-now&lt;/a&gt; lässt sich folgendermaßen sehr kurz beschreiben (Zitat):  &lt;/p&gt;
 

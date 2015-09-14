@@ -65,7 +65,7 @@ html {
 
 body {
   background: #fff;
-  font: 18px/1.4 Helvetica, Arial, sans-serif;
+  font: 14px/1.4 Helvetica, Arial, sans-serif;
   color: #333;
 }
 
@@ -381,7 +381,7 @@ li.tag_list_item {
 }
 
 p {
-  padding: 0 0 1em;
+  padding: 0 0 0 0;
 }
 
 p.summary {
