@@ -7,6 +7,9 @@ tags:
 summary: Scripts per SSH ausführen ist auf verschiedene (mal mehr, mal weniger sinnvolle) Weisen möglich.
 ---
 
+* TOC
+{:toc}
+
 Kürzlich kam ich in die Situation, dass ich auf einem RaspberryPi ein Script ausführen musste, welches ein angeschlossenes Gerät initialisieren sollte. Klar, nichts außergewöhnliches:
 
 * per SSH anmelden
