@@ -5,18 +5,15 @@ published: true
 tags:
 - bananapi
 - homeserver
-summary: Endlich eine Verwendung für den BananaPi
+summary: Eine (hoffentlich sinnvolle) Verwendung für den BananaPi
 ---
 
-Bla Blubb Laber
-
-Blubber
-
+## Die Idee
+Nachdem mein BananaPi nun schon ein halbes Jahr hier bei mir herumlag und irgendwie keine so richtige Aufgabe erfüllte (man beachte die ansprechende Staubpatina), hatte ich kürzlich einen Einfall, wie er vielleicht doch noch etwas sinnvolles zu tun bekommen könnte.
 
 [<img src="{{ site.url }}/images/bananapi_blue_sm.jpg" alt="DustyBananaPi" style="width: 50%;max-height: 100%"/>]({{ site.url }}/images/bananapi_blue_sm.jpg)
 
-
-Noch mehr Text
+## Noch mehr Text
 
 {% highlight bash %}.
 putty -ssh -u fez -pw 1234 192.168.178.26
