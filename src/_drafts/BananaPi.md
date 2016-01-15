@@ -1,6 +1,6 @@
 ---
 layout: post
-title: BananaPi
+title: BananaPi Homeserver
 published: true
 tags:
 - bananapi
