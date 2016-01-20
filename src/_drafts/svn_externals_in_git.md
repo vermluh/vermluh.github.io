@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Umzug von Subversion nach Github
+title: svn:externals und ein Umzug zu git
 published: true
 tags:
 - entwicklung
 - svn
 - git
-summary: Kreative Lösungsansätze beim Umzug von svn zu git
+summary: Behandlung von svn:externals verlangen bei einem Umzug zu git nach kreativen Lösungsansätzen
 ---
 
 ## Der Hintergrund
