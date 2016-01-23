@@ -8,6 +8,9 @@ tags:
 summary: Eine (hoffentlich sinnvolle) Verwendung für den BananaPi
 ---
 
+* TOC
+{:toc}
+
 ## Die Idee
 Nachdem mein BananaPi nun schon ein halbes Jahr hier bei mir herumlag und irgendwie keine so richtige Aufgabe erfüllte (man beachte die ansprechende Staubpatina), hatte ich kürzlich einen Einfall, wie er vielleicht doch noch etwas sinnvolles zu tun bekommen könnte.
 
