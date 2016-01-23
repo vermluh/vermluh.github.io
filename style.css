@@ -189,7 +189,7 @@ img {
 /* LAYOUT / SECTIONS */
 /*********************/
 .wrapper-masthead {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .masthead {
@@ -348,7 +348,7 @@ div.tag_wrapper {
   color: #666;
   font-size: 12px;
   line-height: 20px;
-  margin: 0 0 20px;
+  margin: 0 0 0 0px;
   padding: 1px 0;
   text-transform: uppercase;
 }

@@ -7,29 +7,120 @@
     <atom:link href="blog.verm-luh.de/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Installation von RubyMine unter Linux Mint 17.3</title>
+        <description>&lt;p&gt;Eine kurze Anleitung zur Installation von RubyMine unter Linux Mint 17.3 “Rosa”. Der hier gezeigte Weg hat bei mir gut funktioniert. Es gibt aber sicherlich auch andere…&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#oracle-jdk-installieren&quot;&gt;Oracle JDK installieren&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#entfernen-aller-nicht---oracle-java-pakete&quot;&gt;Entfernen aller ‘Nicht - Oracle Java’ Pakete&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#aufrumen&quot;&gt;Aufräumen&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#hinzufgen-des-webupd8team-java-repository-und-installation-des-oracle-java-sdk&quot;&gt;Hinzufügen des webupd8team Java Repository und Installation des Oracle Java SDK&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#rubymine-installieren&quot;&gt;RubyMine installieren&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#rubymine-archiv-herunterladen&quot;&gt;RubyMine Archiv herunterladen&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#erstellen-des-zielverzeichnisses-und-verschieben-des-archivs&quot;&gt;Erstellen des Zielverzeichnisses und Verschieben des Archivs&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#archiv-entpacken&quot;&gt;Archiv entpacken&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#symlink-erstellen&quot;&gt;Symlink Erstellen&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#meneintrag-erstellen&quot;&gt;Menüeintrag erstellen&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#fertig&quot;&gt;Fertig&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;oracle-jdk-installieren&quot;&gt;Oracle JDK installieren&lt;/h2&gt;
+
+&lt;h3 id=&quot;entfernen-aller-nicht---oracle-java-pakete&quot;&gt;Entfernen aller ‘Nicht - Oracle Java’ Pakete&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo apt-get update
+sudo apt-get remove openjdk* icedtea* default-jre default-jdk gcj-jre gcj-jdk icedtea-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;6..7&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;-plugin icedtea-plugin&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;aufrumen&quot;&gt;Aufräumen&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo apt-get autoremove
+sudo apt-get autoclean&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;hinzufgen-des-webupd8team-java-repository-und-installation-des-oracle-java-sdk&quot;&gt;Hinzufügen des webupd8team Java Repository und Installation des Oracle Java SDK&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html&quot;&gt;Install Oracle Java 8 in Ubuntu or Linux Mint via PPA repository&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;rubymine-installieren&quot;&gt;RubyMine installieren&lt;/h2&gt;
+
+&lt;h3 id=&quot;rubymine-archiv-herunterladen&quot;&gt;RubyMine Archiv herunterladen&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.jetbrains.com/ruby/download/&quot;&gt;Download&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;erstellen-des-zielverzeichnisses-und-verschieben-des-archivs&quot;&gt;Erstellen des Zielverzeichnisses und Verschieben des Archivs&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo mkdir /opt/rubymines
+sudo mv ~/Downloads/RubyMine-X.Y.Z.tar.gz /opt/rubymines&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;archiv-entpacken&quot;&gt;Archiv entpacken&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /opt/rubymines
+sudo tar -xzf RubyMine-X.Y.Z.tar.gz
+sudo rm RubyMine-X.Y.Z.tar.gz&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;symlink-erstellen&quot;&gt;Symlink Erstellen&lt;/h3&gt;
+&lt;p&gt;Optional. Dies dient nur der Einfachheit.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo ln -nfs /opt/rubymines/RubyMine-8.0.3 /opt/rubymine&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;meneintrag-erstellen&quot;&gt;Menüeintrag erstellen&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo touch /usr/share/applications/jetbrains-rubymine.desktop
+sudo nano /usr/share/applications/jetbrains-rubymine.desktop&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Folgenden Inhalt einfügen:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Desktop Entry&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Application
+&lt;span class=&quot;nv&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;RubyMine
+&lt;span class=&quot;nv&quot;&gt;Icon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/rubymine/bin/RMlogo.svg
+&lt;span class=&quot;nv&quot;&gt;Exec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;/opt/rubymine/bin/rubymine.sh&amp;quot;&lt;/span&gt; %f
+&lt;span class=&quot;nv&quot;&gt;Comment&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Develop with pleasure!
+&lt;span class=&quot;nv&quot;&gt;Categories&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Development&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;IDE&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;Terminal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Speichern… Schließen…&lt;/p&gt;
+
+&lt;h2 id=&quot;fertig&quot;&gt;Fertig&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/images/rubymine_menu.jpg&quot; alt=&quot;Menu entry&quot; title=&quot;Menu entry&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 23 Jan 2016 00:00:00 +0100</pubDate>
+        <link>blog.verm-luh.de/2016/01/23/RubyMine-Installation-Rosa.html</link>
+        <guid isPermaLink="true">blog.verm-luh.de/2016/01/23/RubyMine-Installation-Rosa.html</guid>
+      </item>
+    
+      <item>
         <title>Remote Script Execution</title>
-        <description>&lt;p&gt;Kürzlich kam ich in die Situation, dass ich auf einem RaspberryPi ein Script ausführen musste, welches ein angeschlossenes Gerät initialisieren sollte. Klar, nichts außergewöhnliches:&lt;/p&gt;
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#putty&quot;&gt;PuTTY&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#plink&quot;&gt;Plink&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Kürzlich kam ich in die Situation, dass ich auf einem RaspberryPi ein Script ausführen musste, welches ein angeschlossenes Gerät initialisieren sollte. Klar, nichts außergewöhnliches:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;per SSH anmelden&lt;/li&gt;
-&lt;li&gt;Script ausführen&lt;/li&gt;
-&lt;li&gt;fertig&lt;/li&gt;
+  &lt;li&gt;per SSH anmelden&lt;/li&gt;
+  &lt;li&gt;Script ausführen&lt;/li&gt;
+  &lt;li&gt;fertig&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Da diese Initialisierung aber später in einen extern ablaufenden Prozess auf einer anderen Maschine eingebunden werden soll, musste ein Weg her, die Initialisierung aus einem Prozess auf einem anderen (Windows) System anzustoßen.  &lt;/p&gt;
 
-&lt;h2&gt;PuTTY&lt;/h2&gt;
-
-&lt;p&gt;Bei den Themen Windows und SSH landet man natürlich zwangsläufig bei &lt;a href=&quot;http://www.chiark.greenend.org.uk/%7Esgtatham/putty/&quot;&gt;PuTTY&lt;/a&gt;.&lt;br&gt;
+&lt;h2 id=&quot;putty&quot;&gt;PuTTY&lt;/h2&gt;
+&lt;p&gt;Bei den Themen Windows und SSH landet man natürlich zwangsläufig bei &lt;a href=&quot;http://www.chiark.greenend.org.uk/~sgtatham/putty/&quot;&gt;PuTTY&lt;/a&gt;.&lt;br /&gt;
 PuTTY bietet uns verschiedene Möglichkeiten auf einem entfernten System mit aktiviertem SSH Zugang Skripte (bzw. beliebige Kommandos) auszuführen. Um dies zu demonstrieren legt man zuerst ein Python Skript auf dem Zielsystem an. Folgender einfacher Inhalt soll für eine Demonstration ausreichen:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Initialization successful...&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-  
 
-&lt;p&gt;Die neu erstellte Datei noch ausführbar machen (&lt;code&gt;chmod +x ...&lt;/code&gt;) und schon kann es losgehen.&lt;br&gt;
+&lt;p&gt;Die neu erstellte Datei noch ausführbar machen (&lt;code&gt;chmod +x ...&lt;/code&gt;) und schon kann es losgehen.&lt;br /&gt;
 Mit dem Kommandozeilenparameter &lt;code&gt;m&lt;/code&gt; kann man PuTTY nun eine lokale Datei übergeben, deren Inhalt als Kommandos innerhalb der aufzubauenden Verbindung interpretiert werden sollen. Angenommen das oben gezeigte Skript liegt als &lt;code&gt;initialize.py&lt;/code&gt; im &lt;code&gt;home&lt;/code&gt; Verzeihnis des Benutzers, der per SSH am entfernten System angemeldet wird, dann würde die folgende Datei &lt;code&gt;remote_commands.txt&lt;/code&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;./initialize.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -40,17 +131,16 @@ Mit dem Kommandozeilenparameter &lt;code&gt;m&lt;/code&gt; kann man PuTTY nun ei
 
 &lt;p&gt;an PuTTY übergeben, zu folgendem Ergebnis führen:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/putty_command_file_result.jpg&quot; alt=&quot;Command file result&quot; title=&quot;Command file result&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/putty_command_file_result.jpg&quot; alt=&quot;Command file result&quot; title=&quot;Command file result&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Die Ausführung eines Kommandos auf einem entfernten System funktioniert also soweit.&lt;br&gt;
-Allerdings hat diese Vorgehensweise auch Nachteile.&lt;br&gt;
-Zuerst ist es nicht sonderlich komfortabel alle auszuführenden Kommandos in speziellen Kommandodateien abzulegen, die dann als PuTTY Kommandozeilenparameter übergeben werden müssen. Bei einem oder zwei zu verwendenden Kommandos mag das noch gehen, aber irgendwann wird diese Herangehensweise unübersichtlich.&lt;br&gt;
+&lt;p&gt;Die Ausführung eines Kommandos auf einem entfernten System funktioniert also soweit.&lt;br /&gt;
+Allerdings hat diese Vorgehensweise auch Nachteile.&lt;br /&gt;
+Zuerst ist es nicht sonderlich komfortabel alle auszuführenden Kommandos in speziellen Kommandodateien abzulegen, die dann als PuTTY Kommandozeilenparameter übergeben werden müssen. Bei einem oder zwei zu verwendenden Kommandos mag das noch gehen, aber irgendwann wird diese Herangehensweise unübersichtlich.&lt;br /&gt;
 Der weitaus größere Nachteil ist aber der, dass man keine Möglichkeit hat den Exit-Code und somit die erfolgreiche Abarbeitung des oder der Kommandos zu überprüfen.  &lt;/p&gt;
 
-&lt;h2&gt;Plink&lt;/h2&gt;
-
-&lt;p&gt;Auftritt &lt;strong&gt;Plink&lt;/strong&gt;.&lt;br&gt;
-Plink (PuTTY Link) stellt eine kommandozeilenbasierte Schnittstelle zum PuTTY Backend dar und ist von der Funktionalität ähnlich dem von UNIX Systemen bekannten &lt;code&gt;ssh&lt;/code&gt;.&lt;br&gt;
+&lt;h2 id=&quot;plink&quot;&gt;Plink&lt;/h2&gt;
+&lt;p&gt;Auftritt &lt;strong&gt;Plink&lt;/strong&gt;.&lt;br /&gt;
+Plink (PuTTY Link) stellt eine kommandozeilenbasierte Schnittstelle zum PuTTY Backend dar und ist von der Funktionalität ähnlich dem von UNIX Systemen bekannten &lt;code&gt;ssh&lt;/code&gt;.&lt;br /&gt;
 Um die Funktionsweise von Plink zu demonstrieren modifiziert man zuerst das eben erstellte Python Skript auf dem Zielsystem  folgendermaßen:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python&lt;/span&gt;
@@ -58,14 +148,14 @@ Um die Funktionsweise von Plink zu demonstrieren modifiziert man zuerst das eben
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Initialization failed...&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Dieses modifizierte Skrip soll eine fehlgeschlagene Initialisierung auf dem Zielsystem simulieren. Dazu wird der Exit-Code des Skripts auf einen Wert ungleich 0 geändert. Bei der bisherigen Vorgehensweise des Aufrufs über den &lt;code&gt;m&lt;/code&gt; Parameter und die Datei &lt;code&gt;remote_commands.txt&lt;/code&gt; hätte man ohne weiteres keine Möglichkeit die erfolgreiche Abarbeitung der gewünschten Kommandos automatisiert zu überprüfen.&lt;br&gt;
+&lt;p&gt;Dieses modifizierte Skrip soll eine fehlgeschlagene Initialisierung auf dem Zielsystem simulieren. Dazu wird der Exit-Code des Skripts auf einen Wert ungleich 0 geändert. Bei der bisherigen Vorgehensweise des Aufrufs über den &lt;code&gt;m&lt;/code&gt; Parameter und die Datei &lt;code&gt;remote_commands.txt&lt;/code&gt; hätte man ohne weiteres keine Möglichkeit die erfolgreiche Abarbeitung der gewünschten Kommandos automatisiert zu überprüfen.&lt;br /&gt;
 Führt man das Skript aber nun über folgendes &lt;code&gt;plink&lt;/code&gt; Kommando aus&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;plink.exe -ssh -pw &amp;lt;PASSWORD&amp;gt; fez@192.168.178.36 ~/error42.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;führt dies zu folgender Ausgabe:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/plink_command_result.jpg&quot; alt=&quot;plink result&quot; title=&quot;plink result&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/plink_command_result.jpg&quot; alt=&quot;plink result&quot; title=&quot;plink result&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Über das bekannte&lt;/p&gt;
 
@@ -73,7 +163,7 @@ Führt man das Skript aber nun über folgendes &lt;code&gt;plink&lt;/code&gt; Ko
 
 &lt;p&gt;ist es nun auch möglich, den Rückgabewert der Kommandoausführung abzufragen und somit die erfolgreiche Abarbeitung automatisiert zu überprüfen.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/plink_errorcode.jpg&quot; alt=&quot;plink errorcode&quot; title=&quot;plink errorcode&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/plink_errorcode.jpg&quot; alt=&quot;plink errorcode&quot; title=&quot;plink errorcode&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 14 Sep 2015 00:00:00 +0200</pubDate>
         <link>blog.verm-luh.de/2015/09/14/Remote-Script-Execution.html</link>
@@ -82,7 +172,7 @@ Führt man das Skript aber nun über folgendes &lt;code&gt;plink&lt;/code&gt; Ko
     
       <item>
         <title>Tags in Jekyll</title>
-        <description>&lt;p&gt;Dank der großartigen Vorarbeit von &lt;a href=&quot;http://charliepark.org&quot;&gt;Charlie Park&lt;/a&gt; in &lt;a href=&quot;http://charliepark.org/tags-in-jekyll/&quot;&gt;Tags In Jekyll&lt;/a&gt; und &lt;a href=&quot;http://charliepark.org/jekyll-with-plugins/&quot;&gt;Jekyll + Plugins + Github + You&lt;/a&gt; gibt&amp;#39;s hier im Blog nun auch Tags um die Posts ein wenig zu kategorisieren.&lt;/p&gt;
+        <description>&lt;p&gt;Dank der großartigen Vorarbeit von &lt;a href=&quot;http://charliepark.org&quot;&gt;Charlie Park&lt;/a&gt; in &lt;a href=&quot;http://charliepark.org/tags-in-jekyll/&quot;&gt;Tags In Jekyll&lt;/a&gt; und &lt;a href=&quot;http://charliepark.org/jekyll-with-plugins/&quot;&gt;Jekyll + Plugins + Github + You&lt;/a&gt; gibt’s hier im Blog nun auch Tags um die Posts ein wenig zu kategorisieren.&lt;/p&gt;
 </description>
         <pubDate>Thu, 20 Aug 2015 00:00:00 +0200</pubDate>
         <link>blog.verm-luh.de/2015/08/20/Jekyll-Tags.html</link>
@@ -95,18 +185,14 @@ Führt man das Skript aber nun über folgendes &lt;code&gt;plink&lt;/code&gt; Ko
 
 &lt;p&gt;Ich habe mich bewusst für &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;, genauer &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;jekyll-now&lt;/a&gt; entschieden, da ich möglichst wenig Zeremonie um das Erstellen und Editieren der Blog Posts haben möchte.  &lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;jekyll-now&lt;/a&gt; lässt sich folgendermaßen sehr kurz beschreiben (Zitat):  &lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Jekyll is a static site generator that&amp;#39;s perfect for GitHub hosted blogs &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;(Jekyll repository)&lt;/a&gt;  &lt;/p&gt;
-
-&lt;p&gt;Jekyll Now makes it easier to create your Jekyll blog, by eliminating a lot of the up front setup.  &lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;jekyll-now&lt;/a&gt; lässt sich folgendermaßen sehr kurz beschreiben (Zitat):&lt;br /&gt;
+&amp;gt; Jekyll is a static site generator that’s perfect for GitHub hosted blogs &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;(Jekyll repository)&lt;/a&gt;&lt;br /&gt;
+&amp;gt; Jekyll Now makes it easier to create your Jekyll blog, by eliminating a lot of the up front setup.  &lt;/p&gt;
 
 &lt;p&gt;Da der Softwareentwickler an sich ja eher zu den fauleren Zeitgenossen gehört, war vor allem der Teil  &lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;eliminating a lot of the up front setup&lt;/p&gt;
+  &lt;p&gt;eliminating a lot of the up front setup&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;sehr interessant.&lt;/p&gt;

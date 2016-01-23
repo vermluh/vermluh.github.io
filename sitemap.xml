@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>blog.verm-luh.de/2016/01/23/RubyMine-Installation-Rosa.html</loc>
+    <lastmod>2016-01-23T00:00:00+01:00</lastmod>
+  </url>
+  <url>
     <loc>blog.verm-luh.de/2015/09/14/Remote-Script-Execution.html</loc>
     <lastmod>2015-09-14T00:00:00+02:00</lastmod>
   </url>
@@ -26,5 +30,14 @@
   </url>
   <url>
     <loc>blog.verm-luh.de/tag/diesunddas/</loc>
+  </url>
+  <url>
+    <loc>blog.verm-luh.de/tag/entwicklung/</loc>
+  </url>
+  <url>
+    <loc>blog.verm-luh.de/tag/ruby/</loc>
+  </url>
+  <url>
+    <loc>blog.verm-luh.de/tag/rubymine/</loc>
   </url>
 </urlset>

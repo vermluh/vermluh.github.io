@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Installation von RubyMine unter Linux Mint 17.3 – Florian Simon – ...but it works on my machine...</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Eine kurze Anleitung zur Installation von RubyMine unter Linux Mint 17.3 “Rosa”. Der hier gezeigte Weg hat bei mir gut funktioniert. Es gibt aber sicherlich auch andere…
+
+" />
+    <meta property="og:description" content="Eine kurze Anleitung zur Installation von RubyMine unter Linux Mint 17.3 “Rosa”. Der hier gezeigte Weg hat bei mir gut funktioniert. Es gibt aber sicherlich auch andere…
+
+" />
+    
+    <meta name="author" content="Florian Simon" />
+
+    
+    <meta property="og:title" content="Installation von RubyMine unter Linux Mint 17.3" />
+    <meta property="twitter:title" content="Installation von RubyMine unter Linux Mint 17.3" />
+    
+
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Florian Simon - ...but it works on my machine..." href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/vermluh/vermluh.github.io/master/images/avatar.png" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">Florian Simon</a></h1>
+            <p class="site-description">...but it works on my machine...</p>
+          </div>
+
+          <nav>
+            <a href="/">Blog</a>
+            <a href="/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <div class="tag_wrapper">
+    <ul class="tag_list">
+      
+      <li class="inline tag_list_item"><a class="tag_list_link" href="/tag/entwicklung">entwicklung</a></li>
+      
+      <li class="inline tag_list_item"><a class="tag_list_link" href="/tag/ruby">ruby</a></li>
+      
+      <li class="inline tag_list_item"><a class="tag_list_link" href="/tag/rubymine">rubymine</a></li>
+      
+    </ul>
+  </div>
+
+  <h1>Installation von RubyMine unter Linux Mint 17.3</h1>
+
+  <div class="entry">
+    <p>Eine kurze Anleitung zur Installation von RubyMine unter Linux Mint 17.3 “Rosa”. Der hier gezeigte Weg hat bei mir gut funktioniert. Es gibt aber sicherlich auch andere…</p>
+
+<ul id="markdown-toc">
+  <li><a href="#oracle-jdk-installieren">Oracle JDK installieren</a>    <ul>
+      <li><a href="#entfernen-aller-nicht---oracle-java-pakete">Entfernen aller ‘Nicht - Oracle Java’ Pakete</a></li>
+      <li><a href="#aufrumen">Aufräumen</a></li>
+      <li><a href="#hinzufgen-des-webupd8team-java-repository-und-installation-des-oracle-java-sdk">Hinzufügen des webupd8team Java Repository und Installation des Oracle Java SDK</a></li>
+    </ul>
+  </li>
+  <li><a href="#rubymine-installieren">RubyMine installieren</a>    <ul>
+      <li><a href="#rubymine-archiv-herunterladen">RubyMine Archiv herunterladen</a></li>
+      <li><a href="#erstellen-des-zielverzeichnisses-und-verschieben-des-archivs">Erstellen des Zielverzeichnisses und Verschieben des Archivs</a></li>
+      <li><a href="#archiv-entpacken">Archiv entpacken</a></li>
+      <li><a href="#symlink-erstellen">Symlink Erstellen</a></li>
+      <li><a href="#meneintrag-erstellen">Menüeintrag erstellen</a></li>
+    </ul>
+  </li>
+  <li><a href="#fertig">Fertig</a></li>
+</ul>
+
+<h2 id="oracle-jdk-installieren">Oracle JDK installieren</h2>
+
+<h3 id="entfernen-aller-nicht---oracle-java-pakete">Entfernen aller ‘Nicht - Oracle Java’ Pakete</h3>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get update
+sudo apt-get remove openjdk* icedtea* default-jre default-jdk gcj-jre gcj-jdk icedtea-<span class="o">{</span>6..7<span class="o">}</span>-plugin icedtea-plugin</code></pre></div>
+
+<h3 id="aufrumen">Aufräumen</h3>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get autoremove
+sudo apt-get autoclean</code></pre></div>
+
+<h3 id="hinzufgen-des-webupd8team-java-repository-und-installation-des-oracle-java-sdk">Hinzufügen des webupd8team Java Repository und Installation des Oracle Java SDK</h3>
+<p><a href="http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html">Install Oracle Java 8 in Ubuntu or Linux Mint via PPA repository</a></p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer</code></pre></div>
+
+<h2 id="rubymine-installieren">RubyMine installieren</h2>
+
+<h3 id="rubymine-archiv-herunterladen">RubyMine Archiv herunterladen</h3>
+<p><a href="https://www.jetbrains.com/ruby/download/">Download</a></p>
+
+<h3 id="erstellen-des-zielverzeichnisses-und-verschieben-des-archivs">Erstellen des Zielverzeichnisses und Verschieben des Archivs</h3>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo mkdir /opt/rubymines
+sudo mv ~/Downloads/RubyMine-X.Y.Z.tar.gz /opt/rubymines</code></pre></div>
+
+<h3 id="archiv-entpacken">Archiv entpacken</h3>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /opt/rubymines
+sudo tar -xzf RubyMine-X.Y.Z.tar.gz
+sudo rm RubyMine-X.Y.Z.tar.gz</code></pre></div>
+
+<h3 id="symlink-erstellen">Symlink Erstellen</h3>
+<p>Optional. Dies dient nur der Einfachheit.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo ln -nfs /opt/rubymines/RubyMine-8.0.3 /opt/rubymine</code></pre></div>
+
+<h3 id="meneintrag-erstellen">Menüeintrag erstellen</h3>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo touch /usr/share/applications/jetbrains-rubymine.desktop
+sudo nano /usr/share/applications/jetbrains-rubymine.desktop</code></pre></div>
+
+<p>Folgenden Inhalt einfügen:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>Desktop Entry<span class="o">]</span>
+<span class="nv">Type</span><span class="o">=</span>Application
+<span class="nv">Name</span><span class="o">=</span>RubyMine
+<span class="nv">Icon</span><span class="o">=</span>/opt/rubymine/bin/RMlogo.svg
+<span class="nv">Exec</span><span class="o">=</span><span class="s2">&quot;/opt/rubymine/bin/rubymine.sh&quot;</span> %f
+<span class="nv">Comment</span><span class="o">=</span>Develop with pleasure!
+<span class="nv">Categories</span><span class="o">=</span>Development<span class="p">;</span>IDE<span class="p">;</span>
+<span class="nv">Terminal</span><span class="o">=</span><span class="nb">false</span></code></pre></div>
+
+<p>Speichern… Schließen…</p>
+
+<h2 id="fertig">Fertig</h2>
+<p><img src="/images/rubymine_menu.jpg" alt="Menu entry" title="Menu entry" /></p>
+
+  </div>
+
+  <div class="date">
+    Written on January 23, 2016
+  </div>
+
+  
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'vermluh';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+
+
+
+<a href="http://github.com/vermluh"><i class="svg-icon github"></i></a>
+
+
+
+
+
+<a href="http://stackoverflow.com/users/4090677/verm-luh"><i class="svg-icon stackoverflow"></i></a>
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>
