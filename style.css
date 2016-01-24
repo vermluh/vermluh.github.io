@@ -64,7 +64,7 @@ html {
 }
 
 body {
-  background: #fff;
+  background: #FFFFF0;
   font: 14px/1.4 Helvetica, Arial, sans-serif;
   color: #333;
 }
@@ -301,15 +301,20 @@ nav a {
   margin-top: 10px;
 }
 .post .read-more {
-  text-transform: uppercase;
   font-size: 15px;
+}
+
+.entry span {
+  color: #aaa;
+  font-family: Monaco, "Courier New", monospace;
+  font-size: 80%;
 }
 
 .wrapper-footer {
   margin-top: 50px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  background-color: #eee;
+  background-color: #EEEEE0;
 }
 
 footer {
