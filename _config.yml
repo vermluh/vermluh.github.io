@@ -30,11 +30,13 @@ footer-links:
   instagram:
   linkedin:
   pinterest:
-  rss: # just type anything here for a working RSS icon, make sure you set the "url" above!
+  rss: jekyll-feed
   twitter:
   # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   stackoverflow: users/4090677/verm-luh
   youtube: # channel/<your_long_string> or user/<user-name>
+  googleplus: # anything in your profile username that comes after plus.google.com/
+
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
@@ -73,6 +75,7 @@ sass:
 gems:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
   - jemoji
+  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
 
 # Exclude these files from your production _site
 exclude:
@@ -80,3 +83,4 @@ exclude:
     - Gemfile.lock
     - LICENSE
     - README.md
+    - CNAME
