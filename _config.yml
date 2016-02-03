@@ -62,7 +62,7 @@ baseurl: ""
 
 markdown: kramdown
 highlighter: pygments
-permalink: date
+permalink: /:title/
 
 # The release of Jekyll Now that you're using
 version: v1.1.0
