@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tags in Jekyll – Florian Simon – ...but it works on my machine...</title>
+    <title>MATE Lock Screen Background anpassen – Florian Simon – ...but it works on my machine...</title>
 
         <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
@@ -9,18 +9,16 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="Dank der großartigen Vorarbeit von Charlie Park in Tags In Jekyll und Jekyll + Plugins + Github + You gibt’s hier im Blog nun auch Tags um Posts zu kategorisieren.
-
+    <meta name="description" content="
 " />
-    <meta property="og:description" content="Dank der großartigen Vorarbeit von Charlie Park in Tags In Jekyll und Jekyll + Plugins + Github + You gibt’s hier im Blog nun auch Tags um Posts zu kategorisieren.
-
+    <meta property="og:description" content="
 " />
     
     <meta name="author" content="Florian Simon" />
 
     
-    <meta property="og:title" content="Tags in Jekyll" />
-    <meta property="twitter:title" content="Tags in Jekyll" />
+    <meta property="og:title" content="MATE Lock Screen Background anpassen" />
+    <meta property="twitter:title" content="MATE Lock Screen Background anpassen" />
     
 
 
@@ -58,22 +56,46 @@
   <div class="tag_wrapper">
     <ul class="tag_list">
       
-      <li class="inline tag_list_item"><a class="tag_list_link" href="/tag/jekyll">jekyll</a></li>
+      <li class="inline tag_list_item"><a class="tag_list_link" href="/tag/mint">mint</a></li>
       
     </ul>
   </div>
 
-  <h1>Tags in Jekyll</h1>
+  <h1>MATE Lock Screen Background anpassen</h1>
 
   <div class="entry">
-    <p>Dank der großartigen Vorarbeit von <a href="http://charliepark.org">Charlie Park</a> in <a href="http://charliepark.org/tags-in-jekyll/">Tags In Jekyll</a> und <a href="http://charliepark.org/jekyll-with-plugins/">Jekyll + Plugins + Github + You</a> gibt’s hier im Blog nun auch Tags um Posts zu kategorisieren.</p>
+    
+<p>Hat man ein Wunsch-Wallpaper für seinen Desktop gefunden und eingerichtet, dann möchte man natürlich auch diesen Hintergrund auf dem Lock Screen sehen. Zumindest geht es mir so.<br />
+Wenn ich mir nun den Lock Screen von MATE ansehe, dann fällt dieser immer wieder auf einen Standrad Hintergrund zurück. Das ganze sieht dann so aus:</p>
 
-<p><em>If I have seen further, it is by standing on the shoulders of giants. - Isaac Newton</em></p>
+<p><img src="/images/default_lockscreen.jpg" alt="Lock Screen mit Standard-Hintergrund" title="Standard lock screen" /></p>
+
+<p>Ein wenig Recherche brachte dann die Information, dass dieser verwendete Standard Hintergrund in <code>/usr/share/backgrounds/linuxmint</code> definiert ist. Schaut man sich den Inhalt dieses Pfades an, ergibt sich folgendes Bild.</p>
+
+<p><img src="/images/default_background.jpg" alt="Standard Hintergrund" title="Standard Hintergrund" /></p>
+
+<p>Aha. Der Standard-Hintergrund ist also lediglich ein Link auf ein andere Bilddatei. Wenn man diesen Link nun anpasst und auf sein gewünschtes Wallpaper verweisen lässt, dann müsste doch…<br />
+Nach einem schnellen  </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo rm default_background.jpg
+sudo ln -s /home/fez/Pictures/desktops/wallhaven-318296.png default_background.jpg</code></pre></div>
+
+<p>zeigt sich in <code>/usr/share/backgrounds/linuxmint</code> das folgende Bild.</p>
+
+<p><img src="/images/own_default_background.jpg" alt="Eigener Standard Hintergrund" title="Eigener Standard Hintergrund" /></p>
+
+<p>Wenn alles klappt wie gewünscht, dann sollte der Lock Screen nun auch mit dem Wunsch-Wallpaper aufwarten. Und siehe da:</p>
+
+<p><img src="/images/own_lockscreen.jpg" alt="Lock Screen mit Wunsch-Hintergrund" title="Eigener lock screen" /></p>
+
+<p>Es hat also alles geklappt. Der Lock Screen hat ab jetzt ebenfalls das Wunsch-Wallpaper.  </p>
+
+<p><em>Shiny.</em></p>
 
   </div>
 
   <div class="date">
-    Geschrieben 2015-08-20
+    Geschrieben 2016-02-03
   </div>
 
   
