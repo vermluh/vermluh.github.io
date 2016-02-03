@@ -6,6 +6,7 @@ tags:
 - entwicklung
 - ruby
 - rubymine
+- mint
 summary: Eine kurze Anleitung zur Installation von RubyMine unter Linux Mint 17.3 "Rosa"
 ---
 

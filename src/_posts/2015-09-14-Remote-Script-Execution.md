@@ -10,7 +10,7 @@ summary: Scripts per SSH ausführen ist auf verschiedene (mal mehr, mal weniger 
 * TOC
 {:toc}
 
-Kürzlich kam ich in die Situation, dass ich auf einem RaspberryPi ein Script ausführen musste, welches ein angeschlossenes Gerät initialisieren sollte. Klar, nichts außergewöhnliches:
+Kürzlich war ich in der Situation, dass ich auf einem RaspberryPi ein Script ausführen musste, welches ein angeschlossenes Gerät initialisieren sollte. Soweit erstmal nichts außergewöhnliches:
 
 * per SSH anmelden
 * Script ausführen
@@ -20,7 +20,7 @@ Da diese Initialisierung aber später in einen extern ablaufenden Prozess auf ei
 
 ## PuTTY
 Bei den Themen Windows und SSH landet man natürlich zwangsläufig bei [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/).  
-PuTTY bietet uns verschiedene Möglichkeiten auf einem entfernten System mit aktiviertem SSH Zugang Skripte (bzw. beliebige Kommandos) auszuführen. Um dies zu demonstrieren legt man zuerst ein Python Skript auf dem Zielsystem an. Folgender einfacher Inhalt soll für eine Demonstration ausreichen:
+PuTTY bietet verschiedene Möglichkeiten auf einem entfernten System mit aktiviertem SSH Zugang Skripte (bzw. beliebige Kommandos) auszuführen. Um dies zu demonstrieren legt man zuerst ein Python Skript auf dem Zielsystem an. Folgender einfacher Inhalt soll für eine Demonstration ausreichen:
 
 {% highlight python %}
 #!/usr/bin/python
