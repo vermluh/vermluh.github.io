@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BananaPi Homeserver – Florian Simon – ...but it works on my machine...</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="
+" />
+    <meta property="og:description" content="
+" />
+    
+    <meta name="author" content="Florian Simon" />
+
+    
+    <meta property="og:title" content="BananaPi Homeserver" />
+    <meta property="twitter:title" content="BananaPi Homeserver" />
+    
+
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Florian Simon - ...but it works on my machine..." href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/vermluh/vermluh.github.io/master/images/avatar.png" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">Florian Simon</a></h1>
+            <p class="site-description">...but it works on my machine...</p>
+          </div>
+
+          <nav>
+            <a href="/">Blog</a>
+            <a href="/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <div class="tag_wrapper">
+    <ul class="tag_list">
+      
+      <li class="inline tag_list_item"><a class="tag_list_link" href="/tag/bananapi">bananapi</a></li>
+      
+      <li class="inline tag_list_item"><a class="tag_list_link" href="/tag/homeserver">homeserver</a></li>
+      
+    </ul>
+  </div>
+
+  <h1>BananaPi Homeserver</h1>
+
+  <div class="entry">
+    <ul id="markdown-toc">
+  <li><a href="#die-idee">Die Idee</a></li>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#ersteinrichtung">Ersteinrichtung</a></li>
+  <li><a href="#ausblick">Ausblick</a></li>
+</ul>
+
+<h2 id="die-idee">Die Idee</h2>
+<p>Nachdem mein BananaPi nun schon ein halbes Jahr hier bei mir herumlag und irgendwie keine so richtige Aufgabe erfüllte (man beachte die ansprechende Staubpatina), hatte ich kürzlich einen Einfall, wie er vielleicht doch noch etwas sinnvolles zu tun bekommen könnte.</p>
+
+<p><a href="blog.verm-luh.de/images/bananapi_blue_sm.jpg"><img src="blog.verm-luh.de/images/bananapi_blue_sm.jpg" alt="DustyBananaPi" style="width: 100%;max-height: 100%" /></a></p>
+
+<p>Wir haben hier bei uns eine kleine Zahl an lokalen Serverdiensten laufen, die sich munter auf verschiedene Rechner und virtuelle Maschinen verteilen. Auf Dauer wird es ein mühsames Unterfangen immer wieder einzelne Maschinen starten zu müssen, nur weil man gerade mal diesen oder jenen Serverdienst benötigt oder man etwas ausprobieren möchte.<br />
+Weiterhin gibt es auch Serverdienste, die immer erreichbar sein sollen. Da ist es ja naheliegend solche Dienste auf einen ḱleinen sparsamen Rechner wie den BananaPi auszulagern. Auf diese Weise ist es auch nicht so tragisch, wenn der mal eine Zeit lang vor sich hin läuft und gerade nicht verwendet wird.<br />
+Also reifte die Idee, diese genannten Serverdienste zu konsolidieren und gemeinsam auf einem immer erreichbaren System anzubieten.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Die Installation des Betriebssystems gestaltet sich recht einfach. Einfach das aktuelle Image von banaian.org <a href="https://www.bananian.org/download">herunterladen</a> und auf eine SD-Karte aufspielen. Wer schonmal einen RaspberryPi in Betrieb genommen hat, der kennt den Vorgang. Ist recht ähnlich. Ansonsten gibt’s auf der Download-Seite auch nochmal eine Beschreibung, wie man das Image auf einer SD-Karte <a href="https://www.bananian.org/download#installation">installiert</a>. Nach dem Einlegen der SD-Karte und dem Verbinden der Spannungsversorgung startet der BananaPi auch schon. Kurze Zeit später kann man sich dann das erste Mal per SSH mit dem Benutzer <code>root</code> und dem Passwort <code>pi</code> einloggen.</p>
+
+<p><img src="/images/bananian_first_login.jpg" alt="Bananian first login" title="Bananian first login" /></p>
+
+<h2 id="ersteinrichtung">Ersteinrichtung</h2>
+
+<p>Die Meldung, die bei der Anmeldung angezeigt wird zeigt schon den nächsten notwendigen Schritt auf. Das Skript <code>bananian-config</code> führt einen durch die Einrichtung einiger Grundeinstellungen:</p>
+
+<ul>
+  <li><code>root</code> Passwort</li>
+  <li>Zeitzone</li>
+  <li>den Hostnamen</li>
+  <li>…</li>
+</ul>
+
+<p>Weiterhin bietet das Skript die Möglichkeit das Dateisystem auf die gesamte zur Verfügung stehende Größe der SD-Karte zu expandieren. Diese sollte man in jedem Fall wahrnehmen.<br />
+Abschließend habe ich noch <code>bash</code> als meine Standard-Shell eingerichtet</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">chsh -s /bin/bash</code></pre></div>
+
+<p>Dies hat keinen tieferen Sinn. Reine Gewohnheit <img class="emoji" title=":wink:" alt=":wink:" src="https://assets.github.com/images/icons/emoji/unicode/1f609.png" height="20" width="20" align="absmiddle" />  </p>
+
+<p>Initial existiert auf einer nackten Bananian Installation lediglich der Benutzer <code>root</code>. Dies ist natürlich nicht schön. Daher wird noch schnell ein zusätzlicher Benutzer angelegt. Da lediglich der <code>root</code> Benutzer angelegt ist, ist auch lein <code>sudo</code> installiert. Dies ist schnell mittels</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">apt-get update
+apt-get install sudo</code></pre></div>
+
+<p>erledigt. Danach wird der neue Benutzer angelegt und zur Gruppe <code>sudo</code> hinzugefügt, damit er auch mittels <code>sudo</code>, Befehle mit <code>root</code>-Privilegien ausführen kann.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">adduser &lt;username&gt;
+adduser &lt;username&gt; sudo</code></pre></div>
+
+<h2 id="ausblick">Ausblick</h2>
+
+<p>Ich werde versuchen die weiteren Schritte, die ich durchführe, um die Serverdienste auf dem BananaPi zu konsolidieren, hier im Blog zu dokumentieren und in diesem Post zu verlinken.</p>
+
+<p><em>Always by my side to serve the master’s plan - Manowar – The power</em></p>
+
+  </div>
+
+  <div class="date">
+    Geschrieben 2016-02-08
+  </div>
+
+  
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'vermluh';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+
+
+
+<a href="https://github.com/vermluh"><i class="svg-icon github"></i></a>
+
+
+
+<a href="/feed.xml"><i class="svg-icon rss"></i></a>
+
+<a href="http://stackoverflow.com/users/4090677/verm-luh"><i class="svg-icon stackoverflow"></i></a>
+
+<a href="https://plus.google.com/u/0/116839642561914616599"><i class="svg-icon googleplus"></i></a>
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>

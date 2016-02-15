@@ -7,12 +7,75 @@
     <atom:link href="blog.verm-luh.de/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>BananaPi Homeserver</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#die-idee&quot;&gt;Die Idee&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#installation&quot;&gt;Installation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ersteinrichtung&quot;&gt;Ersteinrichtung&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ausblick&quot;&gt;Ausblick&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;die-idee&quot;&gt;Die Idee&lt;/h2&gt;
+&lt;p&gt;Nachdem mein BananaPi nun schon ein halbes Jahr hier bei mir herumlag und irgendwie keine so richtige Aufgabe erfüllte (man beachte die ansprechende Staubpatina), hatte ich kürzlich einen Einfall, wie er vielleicht doch noch etwas sinnvolles zu tun bekommen könnte.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;blog.verm-luh.de/images/bananapi_blue_sm.jpg&quot;&gt;&lt;img src=&quot;blog.verm-luh.de/images/bananapi_blue_sm.jpg&quot; alt=&quot;DustyBananaPi&quot; style=&quot;width: 100%;max-height: 100%&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Wir haben hier bei uns eine kleine Zahl an lokalen Serverdiensten laufen, die sich munter auf verschiedene Rechner und virtuelle Maschinen verteilen. Auf Dauer wird es ein mühsames Unterfangen immer wieder einzelne Maschinen starten zu müssen, nur weil man gerade mal diesen oder jenen Serverdienst benötigt oder man etwas ausprobieren möchte.&lt;br /&gt;
+Weiterhin gibt es auch Serverdienste, die immer erreichbar sein sollen. Da ist es ja naheliegend solche Dienste auf einen ḱleinen sparsamen Rechner wie den BananaPi auszulagern. Auf diese Weise ist es auch nicht so tragisch, wenn der mal eine Zeit lang vor sich hin läuft und gerade nicht verwendet wird.&lt;br /&gt;
+Also reifte die Idee, diese genannten Serverdienste zu konsolidieren und gemeinsam auf einem immer erreichbaren System anzubieten.&lt;/p&gt;
+
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;Die Installation des Betriebssystems gestaltet sich recht einfach. Einfach das aktuelle Image von banaian.org &lt;a href=&quot;https://www.bananian.org/download&quot;&gt;herunterladen&lt;/a&gt; und auf eine SD-Karte aufspielen. Wer schonmal einen RaspberryPi in Betrieb genommen hat, der kennt den Vorgang. Ist recht ähnlich. Ansonsten gibt’s auf der Download-Seite auch nochmal eine Beschreibung, wie man das Image auf einer SD-Karte &lt;a href=&quot;https://www.bananian.org/download#installation&quot;&gt;installiert&lt;/a&gt;. Nach dem Einlegen der SD-Karte und dem Verbinden der Spannungsversorgung startet der BananaPi auch schon. Kurze Zeit später kann man sich dann das erste Mal per SSH mit dem Benutzer &lt;code&gt;root&lt;/code&gt; und dem Passwort &lt;code&gt;pi&lt;/code&gt; einloggen.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/bananian_first_login.jpg&quot; alt=&quot;Bananian first login&quot; title=&quot;Bananian first login&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;ersteinrichtung&quot;&gt;Ersteinrichtung&lt;/h2&gt;
+
+&lt;p&gt;Die Meldung, die bei der Anmeldung angezeigt wird zeigt schon den nächsten notwendigen Schritt auf. Das Skript &lt;code&gt;bananian-config&lt;/code&gt; führt einen durch die Einrichtung einiger Grundeinstellungen:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;root&lt;/code&gt; Passwort&lt;/li&gt;
+  &lt;li&gt;Zeitzone&lt;/li&gt;
+  &lt;li&gt;den Hostnamen&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Weiterhin bietet das Skript die Möglichkeit das Dateisystem auf die gesamte zur Verfügung stehende Größe der SD-Karte zu expandieren. Diese sollte man in jedem Fall wahrnehmen.&lt;br /&gt;
+Abschließend habe ich noch &lt;code&gt;bash&lt;/code&gt; als meine Standard-Shell eingerichtet&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;chsh -s /bin/bash&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Dies hat keinen tieferen Sinn. Reine Gewohnheit &lt;img class=&quot;emoji&quot; title=&quot;:wink:&quot; alt=&quot;:wink:&quot; src=&quot;https://assets.github.com/images/icons/emoji/unicode/1f609.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;  &lt;/p&gt;
+
+&lt;p&gt;Initial existiert auf einer nackten Bananian Installation lediglich der Benutzer &lt;code&gt;root&lt;/code&gt;. Dies ist natürlich nicht schön. Daher wird noch schnell ein zusätzlicher Benutzer angelegt. Da lediglich der &lt;code&gt;root&lt;/code&gt; Benutzer angelegt ist, ist auch lein &lt;code&gt;sudo&lt;/code&gt; installiert. Dies ist schnell mittels&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;apt-get update
+apt-get install sudo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;erledigt. Danach wird der neue Benutzer angelegt und zur Gruppe &lt;code&gt;sudo&lt;/code&gt; hinzugefügt, damit er auch mittels &lt;code&gt;sudo&lt;/code&gt;, Befehle mit &lt;code&gt;root&lt;/code&gt;-Privilegien ausführen kann.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;adduser &amp;lt;username&amp;gt;
+adduser &amp;lt;username&amp;gt; sudo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;ausblick&quot;&gt;Ausblick&lt;/h2&gt;
+
+&lt;p&gt;Ich werde versuchen die weiteren Schritte, die ich durchführe, um die Serverdienste auf dem BananaPi zu konsolidieren, hier im Blog zu dokumentieren und in diesem Post zu verlinken.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Always by my side to serve the master’s plan - Manowar – The power&lt;/em&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 08 Feb 2016 00:00:00 +0100</pubDate>
+        <link>blog.verm-luh.de/2016/02/08/BananaPi.html</link>
+        <guid isPermaLink="true">blog.verm-luh.de/2016/02/08/BananaPi.html</guid>
+      </item>
+    
+      <item>
         <title>MATE Lock Screen Background anpassen</title>
         <description>
 &lt;p&gt;Hat man ein Wunsch-Wallpaper für seinen Desktop gefunden und eingerichtet, dann möchte man natürlich auch diesen Hintergrund auf dem Lock Screen sehen. Zumindest geht es mir so.&lt;br /&gt;
 Wenn ich mir nun den Lock Screen von MATE ansehe, dann fällt dieser immer wieder auf einen Standrad Hintergrund zurück. Das ganze sieht dann so aus:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/default_lockscreen.jpg&quot; alt=&quot;Lock Screen mit Standard-Hintergrund&quot; title=&quot;Standard lock screen&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;blog.verm-luh.de/images/default_lockscreen.jpg&quot;&gt;&lt;img src=&quot;blog.verm-luh.de/images/default_lockscreen.jpg&quot; alt=&quot;Lock Screen mit Standard-Hintergrund&quot; style=&quot;width: 100%;max-height: 100%&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Ein wenig Recherche brachte dann die Information, dass dieser verwendete Standard Hintergrund in &lt;code&gt;/usr/share/backgrounds/linuxmint&lt;/code&gt; definiert ist. Schaut man sich den Inhalt dieses Pfades an, ergibt sich folgendes Bild.&lt;/p&gt;
 
@@ -30,7 +93,7 @@ sudo ln -s /home/fez/Pictures/desktops/wallhaven-318296.png default_background.j
 
 &lt;p&gt;Wenn alles klappt wie gewünscht, dann sollte der Lock Screen nun auch mit dem Wunsch-Wallpaper aufwarten. Und siehe da:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/own_lockscreen.jpg&quot; alt=&quot;Lock Screen mit Wunsch-Hintergrund&quot; title=&quot;Eigener lock screen&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;blog.verm-luh.de/images/own_lockscreen.jpg&quot;&gt;&lt;img src=&quot;blog.verm-luh.de/images/own_lockscreen.jpg&quot; alt=&quot;Lock Screen mit Wunsch-Hintergrund&quot; style=&quot;width: 100%;max-height: 100%&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Es hat also alles geklappt. Der Lock Screen hat ab jetzt ebenfalls das Wunsch-Wallpaper.  &lt;/p&gt;
 
