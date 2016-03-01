@@ -44,7 +44,7 @@ putty -ssh -l fez -pw <PASSWORD> -m d:/tools/putty/remote_commands.txt 192.168.1
 
 an PuTTY übergeben, zu folgendem Ergebnis führen:
 
-![Command file result]({{ site.baseurl }}/images/putty_command_file_result.jpg "Command file result")
+![Command file result]({{ site.url }}/images/putty_command_file_result.jpg "Command file result")
 
 Die Ausführung eines Kommandos auf einem entfernten System funktioniert also soweit.  
 Allerdings hat diese Vorgehensweise auch Nachteile.  
@@ -72,7 +72,7 @@ plink.exe -ssh -pw <PASSWORD> fez@192.168.178.36 ~/error42.py
 
 führt dies zu folgender Ausgabe:
 
-![plink result]({{ site.baseurl }}/images/plink_command_result.jpg "plink result")
+![plink result]({{ site.url }}/images/plink_command_result.jpg "plink result")
 
 Über das bekannte
 
@@ -82,4 +82,4 @@ echo %ERRORLEVEL%
 
 ist es nun auch möglich, den Rückgabewert der Kommandoausführung abzufragen und somit die erfolgreiche Abarbeitung automatisiert zu überprüfen.
 
-![plink errorcode]({{ site.baseurl }}/images/plink_errorcode.jpg "plink errorcode")
+![plink errorcode]({{ site.url }}/images/plink_errorcode.jpg "plink errorcode")

@@ -80,4 +80,4 @@ Terminal=false
 Speichern... Schließen...
 
 ## Fertig
-![Menu entry]({{ site.baseurl }}/images/rubymine_menu.jpg "Menu entry")
+![Menu entry]({{ site.url }}/images/rubymine_menu.jpg "Menu entry")
