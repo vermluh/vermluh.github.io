@@ -1,60 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>blog.verm-luh.de/2016/02/08/BananaPi.html</loc>
+    <loc>/2016/02/08/BananaPi.html</loc>
     <lastmod>2016-02-08T00:00:00+01:00</lastmod>
   </url>
   <url>
-    <loc>blog.verm-luh.de/2016/02/03/Lock-Screen-Background.html</loc>
+    <loc>/2016/02/03/Lock-Screen-Background.html</loc>
     <lastmod>2016-02-03T00:00:00+01:00</lastmod>
   </url>
   <url>
-    <loc>blog.verm-luh.de/2016/01/23/RubyMine-Installation-Rosa.html</loc>
+    <loc>/2016/01/23/RubyMine-Installation-Rosa.html</loc>
     <lastmod>2016-01-23T00:00:00+01:00</lastmod>
   </url>
   <url>
-    <loc>blog.verm-luh.de/2015/09/14/Remote-Script-Execution.html</loc>
+    <loc>/2015/09/14/Remote-Script-Execution.html</loc>
     <lastmod>2015-09-14T00:00:00+02:00</lastmod>
   </url>
   <url>
-    <loc>blog.verm-luh.de/2015/08/20/Jekyll-Tags.html</loc>
+    <loc>/2015/08/20/Jekyll-Tags.html</loc>
     <lastmod>2015-08-20T00:00:00+02:00</lastmod>
   </url>
   <url>
-    <loc>blog.verm-luh.de/2015/07/01/Lift-Off.html</loc>
+    <loc>/2015/07/01/Lift-Off.html</loc>
     <lastmod>2015-07-01T00:00:00+02:00</lastmod>
   </url>
   <url>
-    <loc>blog.verm-luh.de/404.html</loc>
+    <loc>/404.html</loc>
   </url>
   <url>
-    <loc>blog.verm-luh.de/about/</loc>
+    <loc>/about/</loc>
   </url>
   <url>
-    <loc>blog.verm-luh.de/</loc>
+    <loc>/</loc>
   </url>
   <url>
-    <loc>blog.verm-luh.de/tag/jekyll/</loc>
+    <loc>/tag/jekyll/</loc>
   </url>
   <url>
-    <loc>blog.verm-luh.de/tag/diesunddas/</loc>
+    <loc>/tag/diesunddas/</loc>
   </url>
   <url>
-    <loc>blog.verm-luh.de/tag/entwicklung/</loc>
+    <loc>/tag/entwicklung/</loc>
   </url>
   <url>
-    <loc>blog.verm-luh.de/tag/ruby/</loc>
+    <loc>/tag/ruby/</loc>
   </url>
   <url>
-    <loc>blog.verm-luh.de/tag/rubymine/</loc>
+    <loc>/tag/rubymine/</loc>
   </url>
   <url>
-    <loc>blog.verm-luh.de/tag/mint/</loc>
+    <loc>/tag/mint/</loc>
   </url>
   <url>
-    <loc>blog.verm-luh.de/tag/bananapi/</loc>
+    <loc>/tag/bananapi/</loc>
   </url>
   <url>
-    <loc>blog.verm-luh.de/tag/homeserver/</loc>
+    <loc>/tag/homeserver/</loc>
   </url>
 </urlset>
