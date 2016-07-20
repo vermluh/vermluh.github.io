@@ -1,13 +1,8 @@
 ---
 layout: page
-title: About
+title: About me
 permalink: /about/
 ---
 
 Florian Simon, father, software engineer, part time nerd...  
-...and most of the time, it works on my machine  
-
-### Contact me
-
-* [Github](https://github.com/vermluh)  
-* [stackoverflow](http://stackoverflow.com/users/4090677/verm-luh)  
+...and most of the time, it works on my machine    
