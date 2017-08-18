@@ -3,8 +3,8 @@
   <channel>
     <title>Florian Simon</title>
     <description>...but it works on my machine...</description>
-    <link>blog.verm-luh.de</link>
-    <atom:link href="blog.verm-luh.de/feed.xml" rel="self" type="application/rss+xml" />
+    <link></link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>BananaPi Homeserver</title>
@@ -65,8 +65,8 @@ adduser &amp;lt;username&amp;gt; sudo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;em&gt;Always by my side to serve the master’s plan - Manowar – The power&lt;/em&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 08 Feb 2016 00:00:00 +0100</pubDate>
-        <link>blog.verm-luh.de/2016/02/08/BananaPi.html</link>
-        <guid isPermaLink="true">blog.verm-luh.de/2016/02/08/BananaPi.html</guid>
+        <link>/2016/02/08/BananaPi.html</link>
+        <guid isPermaLink="true">/2016/02/08/BananaPi.html</guid>
       </item>
     
       <item>
@@ -100,8 +100,8 @@ sudo ln -s /home/fez/Pictures/desktops/wallhaven-318296.png default_background.j
 &lt;p&gt;&lt;em&gt;Shiny.&lt;/em&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 03 Feb 2016 00:00:00 +0100</pubDate>
-        <link>blog.verm-luh.de/2016/02/03/Lock-Screen-Background.html</link>
-        <guid isPermaLink="true">blog.verm-luh.de/2016/02/03/Lock-Screen-Background.html</guid>
+        <link>/2016/02/03/Lock-Screen-Background.html</link>
+        <guid isPermaLink="true">/2016/02/03/Lock-Screen-Background.html</guid>
       </item>
     
       <item>
@@ -188,8 +188,8 @@ sudo nano /usr/share/applications/jetbrains-rubymine.desktop&lt;/code&gt;&lt;/pr
 &lt;p&gt;&lt;img src=&quot;/images/rubymine_menu.jpg&quot; alt=&quot;Menu entry&quot; title=&quot;Menu entry&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 23 Jan 2016 00:00:00 +0100</pubDate>
-        <link>blog.verm-luh.de/2016/01/23/RubyMine-Installation-Rosa.html</link>
-        <guid isPermaLink="true">blog.verm-luh.de/2016/01/23/RubyMine-Installation-Rosa.html</guid>
+        <link>/2016/01/23/RubyMine-Installation-Rosa.html</link>
+        <guid isPermaLink="true">/2016/01/23/RubyMine-Installation-Rosa.html</guid>
       </item>
     
       <item>
@@ -264,8 +264,8 @@ Führt man das Skript aber nun über folgendes &lt;code&gt;plink&lt;/code&gt; Ko
 &lt;p&gt;&lt;img src=&quot;/images/plink_errorcode.jpg&quot; alt=&quot;plink errorcode&quot; title=&quot;plink errorcode&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 14 Sep 2015 00:00:00 +0200</pubDate>
-        <link>blog.verm-luh.de/2015/09/14/Remote-Script-Execution.html</link>
-        <guid isPermaLink="true">blog.verm-luh.de/2015/09/14/Remote-Script-Execution.html</guid>
+        <link>/2015/09/14/Remote-Script-Execution.html</link>
+        <guid isPermaLink="true">/2015/09/14/Remote-Script-Execution.html</guid>
       </item>
     
       <item>
@@ -275,8 +275,8 @@ Führt man das Skript aber nun über folgendes &lt;code&gt;plink&lt;/code&gt; Ko
 &lt;p&gt;&lt;em&gt;If I have seen further, it is by standing on the shoulders of giants. - Isaac Newton&lt;/em&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 20 Aug 2015 00:00:00 +0200</pubDate>
-        <link>blog.verm-luh.de/2015/08/20/Jekyll-Tags.html</link>
-        <guid isPermaLink="true">blog.verm-luh.de/2015/08/20/Jekyll-Tags.html</guid>
+        <link>/2015/08/20/Jekyll-Tags.html</link>
+        <guid isPermaLink="true">/2015/08/20/Jekyll-Tags.html</guid>
       </item>
     
       <item>
@@ -304,8 +304,8 @@ Führt man das Skript aber nun über folgendes &lt;code&gt;plink&lt;/code&gt; Ko
 &lt;p&gt;&lt;em&gt;We have lift off…&lt;/em&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 01 Jul 2015 00:00:00 +0200</pubDate>
-        <link>blog.verm-luh.de/2015/07/01/Lift-Off.html</link>
-        <guid isPermaLink="true">blog.verm-luh.de/2015/07/01/Lift-Off.html</guid>
+        <link>/2015/07/01/Lift-Off.html</link>
+        <guid isPermaLink="true">/2015/07/01/Lift-Off.html</guid>
       </item>
     
   </channel>
