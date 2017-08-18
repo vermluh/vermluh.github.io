@@ -48,7 +48,7 @@ Abschließend habe ich noch &lt;code&gt;bash&lt;/code&gt; als meine Standard-She
 
 &lt;p&gt;Dies hat keinen tieferen Sinn. Reine Gewohnheit &lt;img class=&quot;emoji&quot; title=&quot;:wink:&quot; alt=&quot;:wink:&quot; src=&quot;https://assets.github.com/images/icons/emoji/unicode/1f609.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;  &lt;/p&gt;
 
-&lt;p&gt;Initial existiert auf einer nackten Bananian Installation lediglich der Benutzer &lt;code&gt;root&lt;/code&gt;. Dies ist natürlich nicht schön. Daher wird noch schnell ein zusätzlicher Benutzer angelegt. Da lediglich der &lt;code&gt;root&lt;/code&gt; Benutzer angelegt ist, ist auch lein &lt;code&gt;sudo&lt;/code&gt; installiert. Dies ist schnell mittels&lt;/p&gt;
+&lt;p&gt;Initial existiert auf einer nackten Bananian Installation lediglich der Benutzer &lt;code&gt;root&lt;/code&gt;. Dies ist natürlich nicht schön. Daher wird noch schnell ein zusätzlicher Benutzer angelegt. Da lediglich der &lt;code&gt;root&lt;/code&gt; Benutzer angelegt ist, ist auch kein &lt;code&gt;sudo&lt;/code&gt; installiert. Dies ist schnell mittels&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;apt-get update
 apt-get install sudo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
